@@ -1,0 +1,29 @@
+allprojects {
+
+    apply plugin: 'eclipse'
+
+    // Always download sources, to allow debugging
+    eclipse {
+        classpath {
+            downloadSources=true
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+}
+
+subprojects {
+	
+	apply plugin: 'java'
+	
+	 // Setup default test behavior, including failure logging
+    test {
+        useTestNG() {
+            useDefaultListeners = true
+        }
+    }
+	
+}

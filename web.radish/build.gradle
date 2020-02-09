@@ -1,0 +1,15 @@
+apply plugin: 'application'
+
+mainClassName = "me.nickvv.freeradish.web.FreeRadishServer"
+
+//Dependency versions managed in $rootDir/dependencies.lock
+dependencies {
+
+	compile project(':core.rest')
+	compile project(':core.service')
+	
+	compile 'com.google.code.findbugs:jsr305:3.0.2'
+	compile 'org.springframework.boot:spring-boot-starter-web:2.2.4.RELEASE'
+	compile 'org.springframework.boot:spring-boot-starter-actuator:2.2.4.RELEASE'
+	
+}
