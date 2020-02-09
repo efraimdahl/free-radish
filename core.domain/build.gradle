@@ -1,0 +1,7 @@
+//Dependency versions managed in $rootDir/dependencies.lock
+dependencies {
+	
+	compile 'com.google.code.findbugs:jsr305:3.0.2'
+	compile 'org.starchartlabs.alloy:alloy-core:0.5.0'
+
+}

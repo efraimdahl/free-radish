@@ -1,4 +1,4 @@
-package me.nickvv.freeradish.core.rest.model;
+package me.nickvv.freeradish.core.main.model;
 
 import java.util.Objects;
 
@@ -7,20 +7,13 @@ import javax.annotation.Nullable;
 
 import org.starchartlabs.alloy.core.MoreObjects;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
+public class Game {
 
-public class GameView {
-
-    @JsonProperty("roomCode")
     private final String roomCode;
 
-    @JsonProperty("gameType")
-    private final String gameType;
+    private final GameType gameType;
 
-    @JsonCreator
-    public GameView(@Nonnull @JsonProperty("roomCode") String roomCode,
-            @Nonnull @JsonProperty("gameType") String gameType) {
+    public Game(@Nonnull String roomCode, @Nonnull GameType gameType) {
         this.roomCode = Objects.requireNonNull(roomCode);
         this.gameType = Objects.requireNonNull(gameType);
     }
@@ -29,21 +22,22 @@ public class GameView {
         return roomCode;
     }
 
-    public String getGameType() {
+    public GameType getGameType() {
         return gameType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getRoomCode(), getGameType());
+        return Objects.hash(getRoomCode(),
+                getGameType());
     }
 
     @Override
     public boolean equals(@Nullable Object obj) {
         boolean result = false;
 
-        if (obj instanceof GameView) {
-            GameView compare = (GameView) obj;
+        if (obj instanceof Game) {
+            Game compare = (Game) obj;
 
             result = Objects.equals(compare.getRoomCode(), getRoomCode())
                     && Objects.equals(compare.getGameType(), getGameType());
@@ -54,8 +48,10 @@ public class GameView {
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(getClass()).omitNullValues().add("roomCode", getRoomCode())
-                .add("gameType", getGameType()).toString();
+        return MoreObjects.toStringHelper(getClass()).omitNullValues()
+                .add("roomCode", getRoomCode())
+                .add("gameType", getGameType())
+                .toString();
     }
 
 }

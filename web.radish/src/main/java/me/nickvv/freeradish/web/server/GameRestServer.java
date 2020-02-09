@@ -21,6 +21,12 @@ public class GameRestServer {
         this.gameService = Objects.requireNonNull(gameService);
     }
 
+    @RequestMapping(method = RequestMethod.POST, path = "/game")
+    public ResponseEntity<GameView> createGame() {
+        var created = gameService.createGame();
+        return new ResponseEntity<>(created, HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.GET, path = "/game/{roomCode}")
     public ResponseEntity<GameView> getGameByCode(@PathVariable("roomCode") String roomCode) {
         return gameService.findGameByCode(roomCode)

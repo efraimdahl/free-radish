@@ -6,6 +6,8 @@ import me.nickvv.freeradish.core.rest.model.GameView;
 
 public interface IGameService {
 
-	Optional<GameView> findGameByCode(String roomCode);
-	
+    GameView createGame();
+
+    Optional<GameView> findGameByCode(String roomCode);
+
 }

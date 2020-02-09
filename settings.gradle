@@ -11,4 +11,6 @@ rootProject.name = 'free-radish'
 
 include 'web.radish'
 include 'core.rest'
+include 'core.domain'
 include 'core.service'
+include 'repository.mem'
