@@ -1,0 +1,2 @@
+client:
+    webhook: http://localhost:8524/api/post-event

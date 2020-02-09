@@ -1,0 +1,4 @@
+server:
+    port: 8525
+client:
+    webhook: http://localhost:8524/api/post-event
