@@ -1,5 +1,6 @@
 package me.nickvv.freeradish.web.server;
 
+import java.io.IOException;
 import java.util.Objects;
 
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import me.nickvv.freeradish.core.rest.model.EventView;
 import me.nickvv.freeradish.core.service.api.IEventService;
@@ -22,7 +25,8 @@ public class EventRestServer {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "/events")
-    public ResponseEntity<Void> postEvent(@RequestBody EventView eventRequest) {
+    public ResponseEntity<Void> postEvent(@RequestBody EventView eventRequest)
+            throws JsonProcessingException, IOException {
         eventService.postEvent(eventRequest);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
